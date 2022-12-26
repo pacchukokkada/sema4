@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"
+    />
+    <title>Messages</title>
+  </head>
+  <style>
+    center i {
+      color: red;
+    }
+  </style>
+  <body>
+    <div style="width: 100%; height: 100px; padding-top: 50px">
+      <center>
+        <h2>Messages</h2>
+      </center>
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <table id="myTable" class="table table-striped" style="width: 100%" >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone number</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach((item)=>{%>
+            <tr>
+              <td><%=item[0]%></td>
+              <td><%=item[1]%></td>
+              <td><%=item[2]%></td>
+              <td><%=item[3]%></td>
+            </tr>
+            <%});%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      var table = $("#myTable").DataTable({
+        rowReorder: {
+          selector: "td:nth-child(3)",
+        },
+        responsive: true,
+        ordering: false,
+      });
+    });
+  </script>
+</html>
